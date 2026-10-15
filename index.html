@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Priyam Agarwal — second-year B.Tech CSIT student at GL Bajaj Institute of Technology, Greater Noida. Projects, skills, and contact information." />
+  <title>Priyam Agarwal | CSIT Student Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2f;
+      --panel-2: #17213a;
+      --text: #edf2ff;
+      --muted: #a8b3ce;
+      --accent: #7c9cff;
+      --accent-2: #67e8d2;
+      --line: rgba(255,255,255,.11);
+      --shadow: 0 18px 50px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(ellipse at 80% 0%, rgba(124,156,255,.14), transparent 34%), var(--bg);
+      color: var(--text); line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(11,16,32,.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-weight: 800; letter-spacing: -.04em; font-size: 1.15rem; }
+    .logo span { color: var(--accent-2); }
+    .nav-links { display: flex; gap: 24px; align-items: center; color: var(--muted); font-size: .93rem; }
+    .nav-links a:hover { color: var(--text); }
+    .menu-btn { display: none; border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 10px; padding: 8px 12px; }
+    .hero { padding: 92px 0 78px; display: grid; grid-template-columns: 1.4fr .8fr; gap: 50px; align-items: center; }
+    .eyebrow { color: var(--accent-2); text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; font-weight: 800; }
+    h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.06; letter-spacing: -.06em; margin: 16px 0 22px; }
+    h1 .gradient { background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .intro { color: var(--muted); font-size: 1.1rem; max-width: 650px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 12px; padding: 12px 18px; font-weight: 750; border: 1px solid var(--line); transition: transform .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn.primary { background: linear-gradient(110deg, var(--accent), #8b7cff); color: #071022; border: 0; }
+    .profile-card { background: linear-gradient(145deg, rgba(124,156,255,.16), rgba(103,232,210,.06)), var(--panel); border: 1px solid var(--line); border-radius: 26px; padding: 28px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .profile-card:before { content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%; background: rgba(124,156,255,.12); filter: blur(3px); right: -75px; top: -70px; }
+    .avatar { width: 88px; height: 88px; border-radius: 24px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #071022; font-size: 2rem; font-weight: 900; margin-bottom: 22px; position: relative; }
+    .profile-card h2 { margin: 0; font-size: 1.45rem; }
+    .profile-card p { color: var(--muted); margin: 5px 0 20px; }
+    .mini-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: .92rem; }
+    .mini-row span:first-child { color: var(--muted); }
+    section { padding: 66px 0; }
+    .section-head { margin-bottom: 28px; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 5px 0; letter-spacing: -.04em; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+    .card h3 { margin: 0 0 9px; }
+    .card p { margin: 0; color: var(--muted); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .tag { font-size: .86rem; padding: 7px 11px; border-radius: 9px; background: var(--panel-2); color: #dce5ff; border: 1px solid var(--line); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card .icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .skill-card h3 { margin-bottom: 7px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .project-mark { width: 45px; height: 45px; display: grid; place-items: center; border-radius: 13px; background: var(--panel-2); font-size: 1.25rem; }
+    .project-type { font-size: .76rem; color: var(--accent-2); text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
+    .project-links { display: flex; gap: 16px; margin-top: 18px; color: var(--accent); font-size: .9rem; font-weight: 700; }
+    .project-links a:hover { text-decoration: underline; }
+    .timeline { display: grid; gap: 14px; }
+    .timeline-item { display: grid; grid-template-columns: 150px 1fr; gap: 22px; }
+    .timeline-date { color: var(--accent-2); font-weight: 750; font-size: .9rem; }
+    .timeline-item h3 { margin: 0 0 5px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+    .contact-box { display: grid; grid-template-columns: 1.1fr .9fr; gap: 25px; align-items: center; background: linear-gradient(120deg, rgba(124,156,255,.12), rgba(103,232,210,.06)), var(--panel); border: 1px solid var(--line); padding: 32px; border-radius: 24px; }
+    .contact-box h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; letter-spacing: -.04em; margin: 8px 0 12px; }
+    .contact-box p { color: var(--muted); }
+    .contact-links { display: grid; gap: 10px; }
+    .contact-link { padding: 13px 15px; background: rgba(255,255,255,.035); border: 1px solid var(--line); border-radius: 12px; overflow-wrap: anywhere; }
+    .contact-link strong { display: block; font-size: .78rem; color: var(--muted); margin-bottom: 2px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .88rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding-top: 62px; gap: 30px; }
+      .about-grid, .projects-grid, .contact-box { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; padding: 20px 5%; background: #0b1020; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: inline-block; }
+      .timeline-item { grid-template-columns: 1fr; gap: 3px; }
+    }
+    @media (max-width: 440px) { .skills-grid { grid-template-columns: 1fr; } .profile-card, .card, .contact-box { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">Priyam<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu ☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow">B.Tech CSIT Student · Aspiring Developer</div>
+        <h1>Hi, I'm <span class="gradient">Priyam Agarwal.</span><br />I build things for the web.</h1>
+        <p class="intro">I'm a second-year Computer Science and Information Technology student who enjoys solving problems, learning new technologies, and building useful projects. I'm currently strengthening my programming, DSA, and web development skills.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my projects ↗</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <aside class="profile-card">
+        <div class="avatar">PA</div>
+        <h2>Priyam Agarwal</h2>
+        <p>Computer Science & Information Technology</p>
+        <div class="mini-row"><span>Current year</span><strong>2nd Year</strong></div>
+        <div class="mini-row"><span>Looking for</span><strong>Internships</strong></div>
+        <div class="mini-row"><span>Based in</span><strong>India</strong></div>
+        <div class="tag-list"><span class="tag">Curious learner</span><span class="tag">Problem solver</span><span class="tag">Team player</span></div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">A little about me</div><h2>Learning by building.</h2><p>Focused on growing strong fundamentals and turning ideas into working projects.</p></div>
+        <div class="about-grid">
+          <div class="card"><h3>My journey</h3><p>As a second-year B.Tech CSIT student, I'm developing a foundation in programming, data structures, computer science concepts, and responsive web design. I believe the best way to learn is to build, test, and improve.</p></div>
+          <div class="card"><h3>What I'm working toward</h3><p>I'm looking for opportunities to apply my skills, learn from experienced developers, contribute to real projects, and grow into a dependable software developer.</p><div class="tag-list"><span class="tag">Internship ready to learn</span><span class="tag">Open to collaboration</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">My toolkit</div><h2>Skills I'm developing.</h2><p>Keep only the technologies you can confidently discuss in an interview.</p></div>
+        <div class="skills-grid">
+          <div class="card skill-card"><div class="icon">⌨️</div><h3>Programming</h3><p>Core programming concepts, debugging, and writing readable code.</p><div class="tag-list"><span class="tag">C</span><span class="tag">Python</span></div></div>
+          <div class="card skill-card"><div class="icon">🧠</div><h3>Computer Science</h3><p>Building fundamentals for technical interviews and software development.</p><div class="tag-list"><span class="tag">DSA</span><span class="tag">OOP</span><span class="tag">DBMS basics</span></div></div>
+          <div class="card skill-card"><div class="icon">🌐</div><h3>Web Development</h3><p>Creating clean, responsive interfaces and learning how websites work.</p><div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Things I've built</div><h2>Featured projects.</h2><p>Replace the sample descriptions and links with your real work before sharing this portfolio.</p></div>
+        <div class="projects-grid">
+          <article class="card">
+            <div class="project-top"><div class="project-mark">🔎</div><span class="project-type">Web application</span></div>
+            <h3>College Lost & Found Portal</h3>
+            <p>A student-focused portal concept for reporting lost items, posting found belongings, and helping campus members reconnect with their property.</p>
+            <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            <div class="project-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#contact">Ask me about it ↗</a></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><div class="project-mark">💻</div><span class="project-type">Programming</span></div>
+            <h3>DSA Practice Collection</h3>
+            <p>A growing collection of coding exercises covering arrays, strings, searching, sorting, and basic problem-solving patterns.</p>
+            <div class="tag-list"><span class="tag">C</span><span class="tag">Python</span><span class="tag">DSA</span></div>
+            <div class="project-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#contact">Ask me about it ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Education & growth</div><h2>My learning path.</h2></div>
+        <div class="card timeline">
+          <div class="timeline-item"><div class="timeline-date">2025 – Present</div><div><h3>B.Tech — Computer Science & Information Technology</h3><p>GL Bajaj Institute of Technology, Greater Noida · Currently in 2nd year. Studying programming, data structures, digital logic, and computer systems.</p></div></div>
+          <div class="timeline-item"><div class="timeline-date">Currently learning</div><div><h3>DSA and Web Development</h3><p>Practising coding problems and building small projects to strengthen practical skills.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div><div class="eyebrow">Let's connect</div><h2>Have an opportunity or project in mind?</h2><p>I'm happy to connect about internships, student projects, hackathons, and opportunities to learn and contribute.</p><a class="btn primary" href="mailto:p89911110@gmail.com">Email me ↗</a></div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:p89911110@gmail.com"><strong>EMAIL</strong>p89911110@gmail.com</a>
+            <a class="contact-link" href="https://in.linkedin.com/in/priyam-agarwal-1222b7278" target="_blank" rel="noreferrer"><strong>LINKEDIN</strong>linkedin.com/in/priyam-agarwal-1222b7278</a>
+            <a class="contact-link" href="https://github.com/PriyamAgarwal18-hub" target="_blank" rel="noreferrer"><strong>GITHUB</strong>github.com/PriyamAgarwal18-hub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><span>© <span id="year"></span> Priyam Agarwal</span><span>Built with HTML, CSS & JavaScript · Keep learning, keep building.</span></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
